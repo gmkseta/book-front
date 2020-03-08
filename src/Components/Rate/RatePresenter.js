@@ -7,7 +7,10 @@ export default ({
 }) => (
   <List medial-list>
     <ListItem>
-      <Star rate={rate}/>
+      <div className="item-title">
+        <div className="item-header">jio</div>
+        <Star rate={rate}/>
+      </div>
       <img slot="media" src="https://cdn.framework7.io/placeholder/fashion-88x88-4.jpg" width="44" height="60" /> 
     </ListItem>
   </List>
