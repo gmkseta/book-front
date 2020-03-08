@@ -21,7 +21,7 @@ const LoggedInLayout = () => (
     <View url="/" id="tab-main" tab tabActive main className="safe-areas" />
     <View url="/rating/" id="tab-1" tab/>
     <View url="/notification" id="tab-2" tab/>
-    <View id="tab-mypage" tab/>
+    <View url="/users/1" id="tab-mypage" tab/>
   </Views>
   )
 const LoggedOutLayout = () => (

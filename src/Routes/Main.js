@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, ListItem, List, Link, Icon, BlockTitle} from 'framework7-react';
+import { Page, ListItem, List, Link, Icon, BlockTitle, Navbar, NavLeft, NavRight, NavTitle } from 'framework7-react';
 
 export default class extends React.Component{
   render() {

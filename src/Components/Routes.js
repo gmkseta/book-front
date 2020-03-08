@@ -3,9 +3,10 @@ import Main from '../Routes/Main';
 import NotFound from '../Routes/404';
 import Rating from '../Routes/Rating';
 import Notification from '../Routes/Notification';
+import UserShow from '../Routes/Users/Show'
+
 const LoggedInRoutes = () => (
   [
-    // Index page
     {
       path: '/',
       component: Main,
@@ -17,6 +18,10 @@ const LoggedInRoutes = () => (
     {
       path: '/notification',
       component: Notification,
+    },
+    {
+      path: '/users/:user_id',
+      component: UserShow,
     },
     {
       path: '(.*)',

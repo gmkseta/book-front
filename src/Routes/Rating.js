@@ -1,5 +1,7 @@
 import React from 'react';
-import { Page, ListItem, List, Icon, BlockTitle } from 'framework7-react';
+import { Page, Card, CardContent, BlockTitle } from 'framework7-react';
+import Rating from '../Components/Rate';
+
 
 
 export default class extends React.Component{
@@ -7,11 +9,17 @@ export default class extends React.Component{
     return(
       <Page className="page-rating">
         <BlockTitle medium className="searchbar-found">Components</BlockTitle>
-        <List className="components-list searchbar-found">
-          <ListItem link="/virtual-list/" title="Virtual List">
-            <Icon slot="media" icon="icon-f7" />
-          </ListItem>
-        </List>
+        <Card
+            outline
+            content="This is a simple card with plain text, but cards can also contain their own header, footer, list view, image, or any other element."
+        ></Card>
+
+        <Card>
+          <CardContent padding={false}>
+            <Rating rate={2.5}/>
+          </CardContent>
+
+        </Card>
       </Page>
     )
   }
