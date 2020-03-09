@@ -4,16 +4,18 @@ import RatePresenter from "./RatePresenter";
 
 const RateContainer = ({
   rate,
-  title
+  title,
+  id
 }) => {
   return (
-    <RatePresenter rate={rate} title={title}/>
+    <RatePresenter rate={rate} title={title} id={id}/>
   );
 };
 
 RateContainer.propTypes = {
   rate: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 export default RateContainer;
