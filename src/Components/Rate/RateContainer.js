@@ -3,15 +3,17 @@ import PropTypes from "prop-types";
 import RatePresenter from "./RatePresenter";
 
 const RateContainer = ({
-  rate
+  rate,
+  title
 }) => {
   return (
-    <RatePresenter rate={rate}/>
+    <RatePresenter rate={rate} title={title}/>
   );
 };
 
 RateContainer.propTypes = {
-  rate: PropTypes.number.isRequired
+  rate: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 export default RateContainer;

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const FontAwesomeIcon = styled(FontAwesomeIconO)`
   font-size: 42px;
+  width: 1.125em!important;
 `
 const StarContainer = styled.div`
   width: 100%;
@@ -25,8 +26,9 @@ class Star extends React.Component{
     // 아 좋은방법 없나요 .. ㅜㅜ .item-content padding-left = 16px
     // iten inner margin-left 16px
     // image 44px 
+    let rate = Number.parseInt((touch.touches[0].pageX-(44+32))/21)/2;
     this.setState({
-      rate: Number.parseInt((touch.touches[0].pageX-(44+32))/21)/2
+      rate: rate < 5 ? rate : 5
     })
   }
   
