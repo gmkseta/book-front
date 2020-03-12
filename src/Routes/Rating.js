@@ -33,9 +33,9 @@ export default () =>{
           data &&
           data.seeFullBook &&
           data.seeFullBook.map(book => (
-            <Card>
+            <Card key={book.id}>
               <CardContent padding={false}>
-                <Rating rate={book.rate} title={book.title} id={book.id}/>
+                <Rating key={book.id} rate={book.rate*1} title={book.title} id={book.id}/>
               </CardContent>
             </Card>
           ))

@@ -1,10 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Views, Toolbar, Link } from 'framework7-react';
+import { Toolbar, Link } from 'framework7-react';
+import View from 'framework7-react/components/view'
+import Views from 'framework7-react/components/views'
 import { faHome, faStar, faBell, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import TabbarLabel from '../Components/TabbarLabel'
 import styled from "styled-components"
+
 
 const ToolbarLink = styled(Link)`
   padding-top: 10px !important;
