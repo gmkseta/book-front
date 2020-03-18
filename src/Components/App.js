@@ -25,7 +25,7 @@ export default () => {
   const f7Params = {
     id: 'io.framework7.testapp',
     theme: 'ios',
-    routes: routes(isLoggedIn)(),
+    routes: routes(true)(),
   }
 
   return (
@@ -33,7 +33,7 @@ export default () => {
       <>
         <GlobalStyles />
         <App params={ f7Params }>
-          <Layout isLoggedIn={ isLoggedIn } />
+          <Layout isLoggedIn={ true } />
         </App>
       </>
     </ThemeProvider>
