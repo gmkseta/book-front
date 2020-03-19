@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { gql } from "apollo-boost";
 import { ThemeProvider } from "styled-components";
 import { useQuery } from "react-apollo-hooks";
@@ -7,7 +7,7 @@ import GlobalStyles from "../Styles/GlobalStyles";
 import Theme from "../Styles/Theme";
 import Layout from '../Routes/Layout'
 import routes from './Routes'
-import { App } from 'framework7-react';
+import { App, f7 } from 'framework7-react';
 
 
 const QUERY = gql`
@@ -15,6 +15,8 @@ const QUERY = gql`
     isLoggedIn @client
   }
 `;
+
+
 
 
 export default () => {
@@ -25,15 +27,30 @@ export default () => {
   const f7Params = {
     id: 'io.framework7.testapp',
     theme: 'ios',
-    routes: routes(true)(),
+    routes: routes(isLoggedIn)(),
   }
-
+  useEffect(()=>{
+    f7.notiToast = f7.toast.create({ 
+      position: 'center',
+      closeTimeout: 2000,
+      on: {
+        closed: (toast)=>{
+          toast.params = {
+            icon: null, text: null, position: "center",
+            closeButton: false, closeButtonColor: null, closeButtonText: "Ok",
+            closeTimeout: 2000, cssClass: null, render: null,
+          }
+        }
+      }
+    })
+  })
+  
   return (
     <ThemeProvider theme={Theme}>
       <>
         <GlobalStyles />
         <App params={ f7Params }>
-          <Layout isLoggedIn={ true } />
+          <Layout isLoggedIn={ isLoggedIn } />
         </App>
       </>
     </ThemeProvider>

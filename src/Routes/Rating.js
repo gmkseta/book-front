@@ -7,11 +7,9 @@ import Loader from "../Components/Loader";
 
 const BOOKS_QUERY = gql`
   {
-    seeFullBook {
+    allBooks {
       id
       title
-      content
-      rate
     }
   }
 `
@@ -19,23 +17,18 @@ const BOOKS_QUERY = gql`
 
 export default () =>{
   const { data, loading } = useQuery(BOOKS_QUERY)
+  console.log(data)
     return(
       <Page className="page-rating">
-        
-
         <BlockTitle medium className="searchbar-found">Components</BlockTitle>
-        <Card
-            outline
-            content="This is a simple card with plain text, but cards can also contain their own header, footer, list view, image, or any other element."
-        ></Card>
         {loading && <Loader/>}
         {!loading &&
           data &&
-          data.seeFullBook &&
-          data.seeFullBook.map(book => (
+          data.allBooks &&
+          data.allBooks.map(book => (
             <Card key={book.id}>
               <CardContent padding={false}>
-                <Rating key={book.id} rate={book.rate*1} title={book.title} id={book.id}/>
+                <Rating key={book.id} rate={0} title={book.title} id={book.id}/>
               </CardContent>
             </Card>
           ))

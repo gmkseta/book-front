@@ -4,8 +4,6 @@ import NotFound from '../Routes/404';
 import Rating from '../Routes/Rating';
 import Notification from '../Routes/Notification';
 import UserShow from '../Routes/Users/Show';
-import UserLogin from '../Routes/Users/Login';
-import UserSignUp from '../Routes/Users/SignUp.jsx';
 import Intro from '../Routes/Intro'
 
 const LoggedInRoutes = () => (
@@ -38,14 +36,6 @@ const LoggedOutRoutes = () => (
     {
       path: '/',
       component: Intro,
-    },
-    {
-      path: '/users/login',
-      component: UserLogin,
-    },
-    {
-      path: '/users/sign_up',
-      component: UserSignUp,
     },
     {
       path: '(.*)',

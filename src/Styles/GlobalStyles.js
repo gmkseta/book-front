@@ -32,5 +32,7 @@ export default createGlobalStyle`
         --f7-vine-absent-color: #4F3C9E;
         --f7-fab-button-size: 60px;
       }
+
+      
     
 `;
