@@ -1,33 +1,29 @@
 import React from 'react';
-import { Page, ListItem, List, Link, Card, BlockTitle, CardContent, CardHeader, CardFooter } from 'framework7-react';
+import { Page, ListItem, List, Link, Card, BlockTitle, CardContent, CardHeader, CardFooter, Swiper, SwiperSlide } from 'framework7-react';
+import { BookFeed } from '../Components/Book';
 
-export default class extends React.Component{
-  render() {
-    return(
-      <Page className="page-home">
-        <List>
-          <ListItem title="Page Transitions" link="/page-transitions/"></ListItem>
-          <ListItem title="Routable Modals" link="/routable-modals/"></ListItem>
-          <ListItem title="Default Route (404)" link="/load-something-that-doesnt-exist/"></ListItem>
-          <ListItem title="Master-Detail (Split View)" link="/master-detail/"></ListItem>
-        </List>
-        <BlockTitle>Styled Cards</BlockTitle>
-          <Card className="demo-card-header-pic">
-            <CardHeader
-              className="no-border"
-              valign="bottom"
-              style={{ backgroundImage: 'url(https://cdn.framework7.io/placeholder/nature-1000x600-3.jpg)' }}
-            >Journey To Mountains</CardHeader>
-            <CardContent>
-              <p className="date">Posted on January 21, 2015</p>
-              <p>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus quis nibh hendrerit...</p>
-            </CardContent>
-            <CardFooter>
-              <Link>Like</Link>
-              <Link>Read more</Link>
-            </CardFooter>
-          </Card>
-      </Page>
-    )
-  }
+export default () => {
+  return(
+    <Page className="page-home">
+      <List>
+        <ListItem title="Page Transitions" link="/page-transitions/"></ListItem>
+        <ListItem title="Routable Modals" link="/routable-modals/"></ListItem>
+        <ListItem title="Default Route (404)" link="/load-something-that-doesnt-exist/"></ListItem>
+        <ListItem title="Master-Detail (Split View)" link="/master-detail/"></ListItem>
+      </List>
+      <BlockTitle>북챠 추천 책</BlockTitle>
+        <Swiper params={{speed:500, slidesPerView: 1.3, spaceBetween: 10, centeredSlides: true}}>
+          {
+            [1,2,3,4,5].map((i)=>(
+                <SwiperSlide key={i}>
+                  <BookFeed/>
+                </SwiperSlide>
+              )
+            )
+          }
+          
+        </Swiper>
+        
+    </Page>
+  )
 }

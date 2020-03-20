@@ -8,6 +8,8 @@ import Theme from "../Styles/Theme";
 import Layout from '../Routes/Layout'
 import routes from './Routes'
 import { App, f7 } from 'framework7-react';
+import "../Styles/Book.scss"
+
 
 
 const QUERY = gql`
@@ -15,8 +17,6 @@ const QUERY = gql`
     isLoggedIn @client
   }
 `;
-
-
 
 
 export default () => {
