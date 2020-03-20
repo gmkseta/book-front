@@ -38,6 +38,9 @@ const captions = {
         strokeWidth: '.2'
       })
     }
+  const getSize = ()=>{
+    return (window.innerWidth-40-window.innerWidth*0.3)*0.65 ;
+  }
   return (
     <>
       <BlockTitle>공리주의</BlockTitle>
@@ -51,7 +54,7 @@ const captions = {
               <RadarChart
                 captions={captions}
                 data={data}
-                size={150}
+                size={getSize()}
                 options={options}
               />
             </div>

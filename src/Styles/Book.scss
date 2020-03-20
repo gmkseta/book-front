@@ -1,5 +1,5 @@
 .book-container{
-  background-color: rgb(221,224,141);
+  background-color: rgba(249,102,93, 0.3);
   .card-header::after{
     content: none;
   }
@@ -16,7 +16,7 @@
       flex-wrap: nowrap;
       align-items: center;
       box-sizing: border-box;
-      width: 30%;
+      width: 35%;
       img{
         width: 100%;
         height: auto;
