@@ -33,34 +33,37 @@ export default ({loginClose}) => {
   const localLogInMutation = useMutation(LOCAL_LOG_IN);
 
   const notiToast = (options) => {
-    Object.assign(f7.notiToast.params, options)
-    let a = f7.notiToast;
-   
-    f7.notiToast.open()
+    if(!f7.notiToast.params.isOpen){
+      Object.assign(f7.notiToast.params, options)
+      f7.notiToast.params.setOption()
+      f7.notiToast.open()
+    }
   }
   const onSubmit = async e => {
     e.preventDefault();
     if (action === "logIn") {
       if (email.value !== "" && password.value !== "") {
+        console.log(password.value)
         try {
           const {
             data: { login }
           } = await requestSecretMutation();
           if (!login) {
-            
-            notiToast({ text:"Y4ou dont have an account yet, create one"})
+            notiToast({ text:"You dont have an account yet, create one"})
             setTimeout(() => setAction("signUp"), 3000);
           } else {
             const token = login;
             localLogInMutation({ variables: { token } }).then(rsp => window.location.href="/")
-            
           }
-        } catch {
-          notiToast({text: "Can't request secret, try again"});
+        } catch(err) {
+          if(err.graphQLErrors){
+            notiToast({text: err.graphQLErrors[0].message});
+          }else{
+            notiToast({text: err.message});
+          }
         }
       } else {
-        notiToast({text: 'I\'m with icon'});
-        notiToast({ text:"Email is required"})
+        notiToast({ text:"All field are required"})
       }
     } else if (action === "signUp") {
       if (
@@ -69,16 +72,20 @@ export default ({loginClose}) => {
       ) {
         try {
           const {
-            data: { createAccount }
+            data: { createUser }
           } = await createAccountMutation();
-          if (!createAccount) {
+          if (!createUser) {
             notiToast({ text:"Can't create account"})
           } else {
             notiToast({ text:"Account created! Log In now"})
             setTimeout(() => setAction("logIn"), 3000);
           }
-        } catch (e) {
-          notiToast({ text:e.message});
+        } catch (err) {
+          if(err.graphQLErrors){
+            notiToast({text: "이메일이 중복 되었습니다."});
+          }else{
+            notiToast({text: err.message});
+          }
         }
       } else {
         notiToast({ text:"All field are required"})
@@ -93,7 +100,9 @@ export default ({loginClose}) => {
           <Link onClick={loginClose}>Close</Link>
         </NavRight>
       </Navbar>
-      <LoginScreenTitle>Framework7</LoginScreenTitle>
+      <LoginScreenTitle>
+        {action === "logIn" && ( '로그인 하셈여!' )}{action === "signUp" && ( '회원가입 하셈여!' )}
+      </LoginScreenTitle>
       <AuthPresenter
         setAction={setAction}
         action={action}

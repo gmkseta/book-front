@@ -28,22 +28,56 @@ export default () => {
     id: 'io.framework7.testapp',
     theme: 'ios',
     routes: routes(isLoggedIn)(),
-  }
-  useEffect(()=>{
-    f7.notiToast = f7.toast.create({ 
-      position: 'center',
-      closeTimeout: 2000,
-      on: {
-        closed: (toast)=>{
-          toast.params = {
-            icon: null, text: null, position: "center",
-            closeButton: false, closeButtonColor: null, closeButtonText: "Ok",
-            closeTimeout: 2000, cssClass: null, render: null,
-          }
-        }
+    on: {
+      init: function(){
+        const f7App = this
+        this.notiToast = this.toast.create({ 
+          position: 'center',
+          closeTimeout: 2000,
+          on: {
+            closed: (toast)=>{
+              toast.params = {
+                icon: null, text: null, position: "center",
+                closeButton: false, closeButtonColor: null, closeButtonText: "Ok",
+                closeTimeout: 2000, cssClass: null, setOption: toast.params.setOption, isOpen:  false
+              }
+            },
+            open: (toast)=>{
+              toast.params.isOpen = true
+            }
+          },
+          setOption(){
+            const toast = f7App.notiToast;
+            const toastHtml = toast.render();
+            const $el = f7App.$(toastHtml);
+            f7App.utils.extend(toast, {
+              $el,
+              el: $el[0],
+              type: 'toast',
+            });
+            $el[0].f7Modal = toast;
+          },
+          render: function(toast){
+            const { position, cssClass, icon, text, closeButton, closeButtonColor, closeButtonText } = toast.params;
+              return `
+                <div class="toast toast-${position} ${cssClass || ''} ${icon ? 'toast-with-icon' : ''}">
+                  <div class="toast-content">
+                    ${icon ? `<div class="toast-icon">${icon}</div>` : ''}
+                    <div class="toast-text">${text}</div>
+                    ${closeButton && !icon ? `
+                    <a class="toast-button button ${closeButtonColor ? `color-${closeButtonColor}` : ''}">${closeButtonText}</a>
+                    `.trim() : ''}
+                  </div>
+                </div>
+              `.trim();
+            }
+        })
+
+
       }
-    })
-  })
+    }
+  }
+  
   
   return (
     <ThemeProvider theme={Theme}>
