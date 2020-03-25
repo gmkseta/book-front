@@ -1,8 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet";
-
-import Input from "../../Components/Input";
-
 import { List, ListInput, ListButton, BlockFooter, Button, Col, Row } from 'framework7-react';
 
 export default ({

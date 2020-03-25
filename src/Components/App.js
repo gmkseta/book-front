@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { gql } from "apollo-boost";
 import { ThemeProvider } from "styled-components";
 import { useQuery } from "react-apollo-hooks";
@@ -7,17 +7,15 @@ import GlobalStyles from "../Styles/GlobalStyles";
 import Theme from "../Styles/Theme";
 import Layout from '../Routes/Layout'
 import routes from './Routes'
-import { App, f7 } from 'framework7-react';
+import { App } from 'framework7-react';
 import "../Styles/Book.scss"
-
-
+import "../Styles/Rate.scss"
 
 const QUERY = gql`
   {
     isLoggedIn @client
   }
 `;
-
 
 export default () => {
   const {

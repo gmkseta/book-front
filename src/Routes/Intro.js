@@ -1,5 +1,5 @@
-import React from 'react';
-import { Page, Swiper, SwiperSlide, Button, LoginScreen, View, Row, Col } from 'framework7-react';
+import React, { useState } from 'react';
+import { Page, Swiper, SwiperSlide, Button, LoginScreen, Row, Col } from 'framework7-react';
 import styled from "styled-components";
 import LoginPage from '../Components/Auth'
 
@@ -13,42 +13,32 @@ background-color: white;
 text-align: center;
 `
 
-export default class extends React.Component{
-constructor(props) {
-  super(props);
-  this.state = {
-    loginScreenOpened: false,
-  };
-  this.closeHandler = this.closeHandler.bind(this);
-  
-}
-closeHandler(e) {
-  this.setState({loginScreenOpened: false})
-}
+export default ()=> {
+  const [ loginScreenOpened, setLoginScreenOpened ] = useState(false);
+  const closeHandler = (e) => {
+    setLoginScreenOpened(false);
+  }
 
-render() {
   return(
     <Page className="page-intro">
       <FullSwiper pagination>
-        <SwiperSlide><IntroImage src="https://insomenia.com/svgs/couple"/></SwiperSlide>
-        <SwiperSlide><IntroImage src="https://insomenia.com/svgs/couple"/></SwiperSlide>
+        <SwiperSlide><IntroImage src="images/books.jpg"/></SwiperSlide>
+        <SwiperSlide><IntroImage src="images/books.jpg"/></SwiperSlide>
         <SwiperSlide>
-          <IntroImage src="https://insomenia.com/svgs/couple"/>
+          <IntroImage src="images/books.jpg"/>
           <br/>
           <Row>
             <Col/>
             <Col>
-              <Button raised large fill onClick={() => {this.setState({loginScreenOpened : true})}}>시작하기</Button>
+              <Button raised large fill onClick={() => {setLoginScreenOpened(true)}}>시작하기</Button>
             </Col>
             <Col/>
           </Row>
         </SwiperSlide>
       </FullSwiper>
-      <LoginScreen opened={this.state.loginScreenOpened} onLoginScreenClosed={() => {this.setState({loginScreenOpened : false})}}>
-        <LoginPage loginClose={this.closeHandler}/>
+      <LoginScreen opened={loginScreenOpened} onLoginScreenClosed={() => {setLoginScreenOpened(false)}}>
+        <LoginPage loginClose={closeHandler}/>
       </LoginScreen> 
     </Page>
   )
-}
-
 }

@@ -3,6 +3,9 @@ import reset from "styled-reset";
 
 export default createGlobalStyle`
     ${reset};
+    li{
+      list-style: none;
+    }
     :root {
         --f7-navbar-bg-color: #ffffff;
         --f7-navbar-bg-image: var(--f7-bars-bg-image);

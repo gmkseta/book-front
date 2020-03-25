@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, ListItem, List, Link, Card, BlockTitle, CardContent, CardHeader, CardFooter, Swiper, SwiperSlide } from 'framework7-react';
+import { Page, ListItem, List, BlockTitle, Swiper, SwiperSlide } from 'framework7-react';
 import { BookFeed } from '../Components/Book';
 
 export default () => {
@@ -15,7 +15,7 @@ export default () => {
         <Swiper params={{speed:500, slidesPerView: 1.3, spaceBetween: 10, centeredSlides: true}}>
           {
             [1,2,3,4,5].map((i)=>(
-                <SwiperSlide key={i}>
+                <SwiperSlide key={i} className="book-swiper-slide">
                   <BookFeed/>
                 </SwiperSlide>
               )

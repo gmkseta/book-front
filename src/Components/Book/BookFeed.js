@@ -1,5 +1,5 @@
 import React from "react";
-import { BlockTitle ,Card, CardHeader, ListItem, CardFooter, Link, CardContent} from "framework7-react"
+import { BlockTitle ,Card, CardFooter, CardContent} from "framework7-react"
 import RadarChart from 'react-svg-radar-chart';
 
 export default () => {
@@ -44,11 +44,11 @@ const captions = {
   return (
     <>
       <BlockTitle>공리주의</BlockTitle>
-      <Card>
+      <Card className="book-card">
         <CardContent padding={false} className="book-container">
           <div className="book-content">
             <div className="book-img">
-              <img slot="media" src="http://image.yes24.com/momo/TopCate1122/MidCate003/112127301.jpg"/>
+              <img alt="" slot="media" src="http://image.yes24.com/momo/TopCate1122/MidCate003/112127301.jpg"/>
             </div>
             <div className="book-inner">
               <RadarChart

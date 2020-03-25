@@ -3,13 +3,15 @@ import AuthPresenter from "./AuthPresenter";
 import { Page, Navbar, NavRight, Link, LoginScreenTitle } from "framework7-react";
 import useInput from "../../Hooks/useInput";
 import { useMutation } from "react-apollo-hooks";
-import { renderToString } from 'react-dom/server'
+
 import {
   LOGIN,
   CREATE_USER,
   LOCAL_LOG_IN
 } from "./AuthQueries";
 import { f7 } from 'framework7-react';
+
+import { renderToString } from 'react-dom/server'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle  } from '@fortawesome/free-solid-svg-icons'
 
@@ -43,7 +45,6 @@ export default ({loginClose}) => {
     e.preventDefault();
     if (action === "logIn") {
       if (email.value !== "" && password.value !== "") {
-        console.log(password.value)
         try {
           const {
             data: { login }
@@ -56,8 +57,8 @@ export default ({loginClose}) => {
             localLogInMutation({ variables: { token } }).then(rsp => window.location.href="/")
           }
         } catch(err) {
-          if(err.graphQLErrors){
-            notiToast({text: err.graphQLErrors[0].message});
+          if(err.graphQLErrors.length){
+            notiToast({text: err.graphQLErrors[0].message, icon: renderToString(<FontAwesomeIcon icon={faExclamationTriangle}/>)});
           }else{
             notiToast({text: err.message});
           }
@@ -81,7 +82,7 @@ export default ({loginClose}) => {
             setTimeout(() => setAction("logIn"), 3000);
           }
         } catch (err) {
-          if(err.graphQLErrors){
+          if(err.graphQLErrors.length){
             notiToast({text: "이메일이 중복 되었습니다."});
           }else{
             notiToast({text: err.message});

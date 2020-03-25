@@ -38,6 +38,5 @@ export default (imgUrl) => {
     rgb.b += data.data[i+2];
   }
   
-  console.log(rgb)
   
 }

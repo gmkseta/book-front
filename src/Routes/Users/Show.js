@@ -5,7 +5,6 @@ import { Page, ListItem, List, Icon, BlockTitle } from 'framework7-react';
 export default class extends React.Component{
   constructor(props) {
     super(props);
-    console.log(this)
   }
 
 

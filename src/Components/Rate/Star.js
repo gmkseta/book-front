@@ -12,6 +12,9 @@ const StarContainer = styled.div`
   width: 100%;
 `
 
+faStarO.className = "unfill"
+faStar.className = "fill"
+faStarHalfAlt.className = "fill"
 
 class Star extends React.Component{
   constructor(props) {
@@ -45,14 +48,15 @@ class Star extends React.Component{
     for(;i<=5;i++){
       result.push(faStarO)
     }
+      
     return result;
   }
 
   render(){ 
     return (
-    <StarContainer onTouchStart={this.onDrag} onTouchMove={this.onDrag}>
+    <StarContainer onTouchStart={this.onDrag} onTouchMove={this.onDrag} className="star-container">
       {this.getStarArr().map((icon, index) => (
-        <FontAwesomeIcon icon={icon} key={index}/>
+        <FontAwesomeIcon icon={icon} key={index} className={icon.className}/>
       ))}
     </StarContainer>)
     }
