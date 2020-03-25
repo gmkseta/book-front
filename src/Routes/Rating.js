@@ -18,7 +18,6 @@ const BOOKS_QUERY = gql`
 
 export default () =>{
   const { data, loading } = useQuery(BOOKS_QUERY)
-  
     return(
       <Page className="page-rating">
         <BlockTitle medium className="searchbar-found">Components</BlockTitle>
