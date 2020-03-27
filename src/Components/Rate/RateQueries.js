@@ -1,19 +1,29 @@
 import { gql } from "apollo-boost";
 
-export const TOGGLE_LIKE = gql`
-  mutation toggelLike($postId: String!) {
-    toggleLike(postId: $postId)
-  }
-`;
 
-export const ADD_COMMENT = gql`
-  mutation addComment($postId: String!, $text: String!) {
-    addComment(postId: $postId, text: $text) {
-      id
-      text
-      user {
-        username
+export const ALL_BOOKS = gql`
+    query AllBooks(
+      $categoryId: String, $afterId: String
+      ){
+        allBooks(
+          categoryId: $categoryId, afterId: $afterId
+        ){
+            id
+            title
+            author
+            
+        }
       }
+`
+
+export const ADD_REVIEW = gql`
+  mutation AddReview($bookId: String!, $rate: Int!){
+    addReview(
+      bookId: $bookId
+      rate: $rate
+    ){
+      id
+      rate
     }
   }
-`;
+`
