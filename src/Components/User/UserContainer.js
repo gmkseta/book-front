@@ -1,40 +1,43 @@
 import React from "react";
+
 import UserPresenter from "./UserPresenter";
-import LoadingHeader from "./LoadingHeader";
+import UserReview from "./UserReview";
+
 import Loader from "../Loader";
-import { Page, List, Block, BlockTitle, ListItem, f7 } from 'framework7-react';
+
+import { Page, List, Block, BlockTitle } from 'framework7-react';
 import { useQuery } from "react-apollo-hooks";
 import {
-  SEE_PROFILE
+  SEE_PROFILE,
+  USER_REVIEW
 } from "./UserQueries";
 
 export default ({userId}) => {
-  
-  const {loading, error, data} = useQuery(SEE_PROFILE, {
+
+  const seeProfile = useQuery(SEE_PROFILE, {
     variables: {
-      id: "ck87cquoj023v08031a7dlgbz"
+      id: "ck8ax1upq03ru080377t9n5i8"
+    }
+  });
+  const userReview = useQuery(USER_REVIEW, {
+    variables: {
+      id: "ck8ax1upq03ru080377t9n5i8"
     }
   });
   
 
+
   return (
-    <Page className="page-rating" >
+    <Page className="page-user">
       <BlockTitle medium className="searchbar-found">My Page</BlockTitle>
       <Block>
         <List medial-list className="my-page">
+          <UserPresenter seeProfile={seeProfile} />
           
-          {
-            loading && 
-            <LoadingHeader />
-          }{
-            !loading &&
-            <UserPresenter username={data.seeProfile.username} id={data.seeProfile.id} />
-          }
-
         </List>
-        
-
       </Block>
+      <BlockTitle medium className="user-review">최고의 도서</BlockTitle>
+      <UserReview userReview={userReview} />
     </Page>
   )
 
