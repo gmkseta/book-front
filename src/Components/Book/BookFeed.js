@@ -47,17 +47,22 @@ const captions = {
       <Card className="book-card">
         <CardContent padding={false} className="book-container">
           <div className="book-content">
-            <div className="book-img">
-              <img alt="" slot="media" src="http://image.yes24.com/momo/TopCate1122/MidCate003/112127301.jpg"/>
-            </div>
-            <div className="book-inner">
-              <RadarChart
-                captions={captions}
-                data={data}
-                size={getSize()}
-                options={options}
-              />
-            </div>
+            <a href="/books/11bd7872ec1d00789ee2313d">
+
+            
+              <div className="book-img">
+                
+                <img alt="" slot="media" src="http://image.yes24.com/momo/TopCate1122/MidCate003/112127301.jpg"/>
+              </div>
+              <div className="book-inner">
+                <RadarChart
+                  captions={captions}
+                  data={data}
+                  size={getSize()}
+                  options={options}
+                />
+              </div>
+            </a>
           </div>
           <CardFooter>
             <span>뭐시기~</span>

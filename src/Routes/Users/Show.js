@@ -5,5 +5,5 @@ import UserContainer from '../../Components/User/UserContainer';
 
 export default ({userId}) => {
   
-  return(<UserContainer />);
+  return(<UserContainer userId={userId}/>);
 }
