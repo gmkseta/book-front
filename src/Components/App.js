@@ -1,7 +1,7 @@
 import React from "react";
 import { gql } from "apollo-boost";
 import { ThemeProvider } from "styled-components";
-import { useQuery } from "react-apollo-hooks";
+import { useQuery } from "@apollo/react-hooks";
 import "react-toastify/dist/ReactToastify.css";
 import GlobalStyles from "../Styles/GlobalStyles";
 import Theme from "../Styles/Theme";

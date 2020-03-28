@@ -3,7 +3,7 @@ import { FontAwesomeIcon as FontAwesomeIconO } from '@fortawesome/react-fontawes
 import { faStarHalfAlt, faStar } from '@fortawesome/free-solid-svg-icons'
 import { faStar as faStarO } from '@fortawesome/free-regular-svg-icons'
 import styled from 'styled-components';
-import { useMutation } from "react-apollo-hooks";
+import { useMutation } from "@apollo/react-hooks";
 import {
   ADD_REVIEW
 } from "./RateQueries";
