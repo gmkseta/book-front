@@ -15,6 +15,7 @@ text-align: center;
 
 export default ()=> {
   const [ loginScreenOpened, setLoginScreenOpened ] = useState(false);
+  
   const closeHandler = (e) => {
     setLoginScreenOpened(false);
   }

@@ -24,6 +24,7 @@ export default ({loginClose}) => {
   const requestSecretMutation = useMutation(LOGIN, {
     variables: { email: email.value, password: password.value }
   });
+  
   const createAccountMutation = useMutation(CREATE_USER, {
     variables: {
       email: email.value,
@@ -33,7 +34,7 @@ export default ({loginClose}) => {
   });
   
   const localLogInMutation = useMutation(LOCAL_LOG_IN);
-
+  
   const notiToast = (options) => {
     if(!f7.notiToast.params.isOpen){
       Object.assign(f7.notiToast.params, options)
