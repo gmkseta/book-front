@@ -54,10 +54,9 @@ export default ({id, rate}) => {
     return result;
   }
 
-  const createReview = async (e) => {
-    const {
-      data: { addReview }
-    } = await addReviewMutation();
+  const createReview = (e) => {
+    const a = addReviewMutation();
+    console.log(a)
   }
   
   return (
