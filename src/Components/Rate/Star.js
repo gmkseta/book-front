@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon as FontAwesomeIconO } from '@fortawesome/react-fontawesome'
 import { faStarHalfAlt, faStar } from '@fortawesome/free-solid-svg-icons'
 import { faStar as faStarO } from '@fortawesome/free-regular-svg-icons'
 import styled from 'styled-components';
+import { useMutation } from "react-apollo-hooks";
+import {
+  ADD_REVIEW
+} from "./RateQueries";
 
 const FontAwesomeIcon = styled(FontAwesomeIconO)`
   font-size: 42px;
@@ -16,32 +20,30 @@ faStarO.className = "unfill"
 faStar.className = "fill"
 faStarHalfAlt.className = "fill"
 
-class Star extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      rate: props.rate
-    }
-    this.onDrag = this.onDrag.bind(this);
-  }
+export default ({id, rate}) => {
+  const bookId = id;
+  const [newRate, setNewRate] = useState(rate);
+  const addReviewMutation = useMutation(ADD_REVIEW, {
+    variables: { bookId: id, rate: newRate }
+  });
 
-  onDrag(touch){
+  const onDrag = (touch) => {
     // 아 좋은방법 없나요 .. ㅜㅜ .item-content padding-left = 16px
     // iten inner margin-left 16px
     // image 44px 
-    let rate = Number.parseInt((touch.touches[0].pageX-(44+32))/21)/2;
-    this.setState({
-      rate: rate < 5 ? rate : 5
-    })
+    let rate = Number.parseInt((touch.touches[0].pageX-(60+32))/21);
+    setNewRate(
+      rate < 10 ? rate : 10
+    )
   }
   
-  getStarArr = ()=>{
+  const getStarArr = ()=>{
     let result = [];
     let i = 1;
-    for(;i<=this.state.rate*1;i++){
+    for(;i<=newRate/2*1;i++){
       result.push(faStar);
     }
-    if(i-this.state.rate===0.5){
+    if(i-newRate/2===0.5){
       result.push(faStarHalfAlt);
       i++
     }
@@ -52,14 +54,17 @@ class Star extends React.Component{
     return result;
   }
 
-  render(){ 
-    return (
-    <StarContainer onTouchStart={this.onDrag} onTouchMove={this.onDrag} className="star-container">
-      {this.getStarArr().map((icon, index) => (
-        <FontAwesomeIcon icon={icon} key={index} className={icon.className}/>
-      ))}
-    </StarContainer>)
-    }
+  const createReview = async (e) => {
+    const {
+      data: { addReview }
+    } = await addReviewMutation();
   }
-
-export default Star;
+  
+  return (
+  <StarContainer onTouchStart={onDrag} onTouchEnd={createReview} onTouchMove={onDrag} className="star-container">
+    {getStarArr().map((icon, index) => (
+      <FontAwesomeIcon icon={icon} key={index} className={icon.className}/>
+    ))}
+  </StarContainer>)
+}
+  
