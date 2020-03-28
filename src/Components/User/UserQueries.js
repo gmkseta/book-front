@@ -15,6 +15,10 @@ export const USER_REVIEW = gql`
       id
       rate
       content
+      book {
+        title
+        image
+      }
     }
   }
 `

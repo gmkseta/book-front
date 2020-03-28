@@ -10,7 +10,7 @@ export default (
   
   return (
     <>
-    <BlockTitle>{data.id}</BlockTitle>
+    <BlockTitle>{data.book.title}</BlockTitle>
     <Card className="book-card">
       <CardContent padding={false} className="book-container">
         <div className="book-content">
@@ -18,6 +18,9 @@ export default (
             <img alt="" slot="media" src="http://image.yes24.com/momo/TopCate1122/MidCate003/112127301.jpg" />
           </div>
         </div>
+          <CardFooter>
+            <span>{data.content}</span>
+          </CardFooter>
       </CardContent>
     </Card>
     </>
