@@ -9,10 +9,12 @@ import styled from "styled-components";
 const BookFeed = ({book}) => {
   const ColorCardContent = styled(CardContent)`
     background-color: ${book.color}BF !important;
+    border-radius: 1em;
   `
   const ColorChip =  styled(Chip)`
     background-color: ${book.color}BF !important;
   `
+  
   const data = [
     {
      "data": {
@@ -20,7 +22,7 @@ const BookFeed = ({book}) => {
       "reviews_count": book.reviews_count/30 ,
       "price": (1-book.price/30000) < 0 ? 0 : (1-book.price/30000),
       "pubDate": (new Date(book.pub_date)*1 || (new Date()*1)/2)/(new Date()*1),
-      "weight": 0.7
+      "weight": (parseInt(book.id)%6+5)/10
      },
      "meta": {
         "color": `#F9665E`
@@ -34,7 +36,7 @@ const BookFeed = ({book}) => {
     reviews_count: '리뷰 수',
     price: '가성비',
     pubDate: '트랜디',
-    weight: 'Weight'
+    weight: '북챠 추천'
   };
   const options = {
     scaleProps: () => ({

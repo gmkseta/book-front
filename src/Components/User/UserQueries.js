@@ -22,3 +22,24 @@ export const USER_REVIEW = gql`
     }
   }
 `
+
+export const USER_REVIEW_BOOKS = gql`
+  query userReviewBooks($categoryId: String, $afterId: String){
+    userReviewBooks(categoryId: $categoryId, afterId: $afterId){
+      id
+      title
+      reviews_count
+      review_average
+      price
+      pub_date
+      image
+      color
+      category {
+        name
+      }
+      keywords {
+        name
+      }
+    }
+  }
+`

@@ -1,12 +1,19 @@
 import React from "react";
 import { ListItem, Block, Row, Col, Chip } from 'framework7-react';
 import { ThumbImage } from "./BookImage";
+import styled from "styled-components"
+
+
+
 export default(
   { book }
 ) => {
+  const ColorDiv = styled.div`
+   background-color: ${book.color}80;
+  `
   return (
       <>
-        <div className="book-show">
+        <ColorDiv className="book-show">
           <Row className="book-main">
             <Col className="book-img" width="20">
               <ThumbImage id={book.id} image={book.image} />
@@ -57,7 +64,7 @@ export default(
 
           </div>
 
-        </div>
+        </ColorDiv>
       </>
       
     )

@@ -18,7 +18,7 @@ export default (
           </div>
         </div>
           <CardFooter>
-            <span>{data.content}</span>
+            <span>{escape(data.content)}</span>
           </CardFooter>
       </CardContent>
     </Card>

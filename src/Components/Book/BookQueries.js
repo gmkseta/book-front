@@ -25,7 +25,8 @@ export const SEE_FULL_BOOK = gql `
       price
       content
       pub_date
-
+      color
+      
       category {
         id
         name
