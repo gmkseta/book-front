@@ -40,10 +40,17 @@ const BookFeed = ({book}) => {
       })
     }
   const getSize = ()=>{
-    return (window.innerWidth-40-window.innerWidth*0.3)*0.65 ;
+    let width;
+    if (window.innerWidth > 500){
+      width = document.getElementById("app").offsetWidth;
+    } else {
+      width = window.innerWidth;
+
+    }
+    return (width-40-width*0.3)*0.65 ;
   }
   return (
-    <> 
+    <>
     <BlockTitle>{book.title}</BlockTitle>
       <Card className="book-card">
         <CardContent padding={false} className="book-container">
