@@ -2,7 +2,8 @@ import React from "react";
 import { BlockTitle ,Card, CardFooter, CardContent} from "framework7-react"
 import RadarChart from 'react-svg-radar-chart';
 
-export default () => {
+export default ({book}) => {
+  console.log(book);
   const data = [
     {
      "data": {
@@ -18,7 +19,7 @@ export default () => {
     }
    ]
 
-const captions = {
+  const captions = {
     // columns
     battery: '평점',
     design: '댓글 수',

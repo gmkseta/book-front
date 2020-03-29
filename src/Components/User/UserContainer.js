@@ -37,7 +37,7 @@ export default ({userId}) => {
         </List>
       </Block>
       <BlockTitle medium className="user-review">최고의 도서</BlockTitle>
-      <UserReview userReview={userReview} />
+      {/* <UserReview userReview={userReview} /> */}
     </Page>
   )
 
