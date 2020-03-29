@@ -11,6 +11,7 @@ export const ALL_BOOKS = gql`
             id
             title
             author
+            image
         }
       }
 `

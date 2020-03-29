@@ -4,7 +4,7 @@ import RatePresenter from "./RatePresenter";
 import Loader from "../Loader";
 import { useLazyQuery } from "@apollo/react-hooks";
 import {
-  RANDOM_BOOKS
+  RANDOM_BOOKS, ALL_BOOKS
 } from "./RateQueries";
 
 export default ( { categoryId }) => {
@@ -12,7 +12,7 @@ export default ( { categoryId }) => {
   const [preloader, setPreloader] = useState(true);
   const [items, setItems] = useState([]);
   const [after, setAfter] = useState(null);
-  const [ loadBooks, { called, loading, data }] = useLazyQuery(RANDOM_BOOKS, {
+  const [ loadBooks, { called, loading, data }] = useLazyQuery(ALL_BOOKS, {
     variables: {
       categoryId: '',
       afterId: after
@@ -32,9 +32,9 @@ export default ( { categoryId }) => {
   
   useEffect(()=>{
     if(loading===false&&called===true&&infiState===false){
-      setItems([...items, ...data.randomBooks])
+      setItems([...items, ...data.allBooks])
       setInfiState(true);
-      if(data.randomBooks.length === 0){
+      if(data.allBooks.length === 0){
         setPreloader(false)
       }
     }
@@ -51,7 +51,7 @@ export default ( { categoryId }) => {
             {
               items &&
               items.map((book, i) => (
-                <RatePresenter author={book.author} title={book.title} id={book.id} key={i}/>
+                <RatePresenter book={book} key={i}/>
               ))
             }
           </List>
