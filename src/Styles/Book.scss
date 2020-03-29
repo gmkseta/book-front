@@ -12,6 +12,7 @@
       align-items: center;
       min-height: var(--f7-list-item-min-height);
       padding: 10px;
+
       .book-img{
         display: flex;
         flex-shrink: 0;
@@ -24,6 +25,7 @@
           height: auto;
         }
       }
+
       .book-img + .book-inner{
         margin-left: var(--f7-list-item-media-margin);
       }
@@ -53,6 +55,12 @@
           color: #381413;
           line-height: var(--f7-list-item-title-line-height);
           padding-bottom: 10px;
+        }
+        .book-price{ 
+          font-size: 14px;
+          font-weight: 400;
+          color: #381413;
+          
         }
         p{
           font-size: 15px;
