@@ -10,6 +10,7 @@ import routes from './Routes'
 import { App } from 'framework7-react';
 import "../Styles/Book.scss"
 import "../Styles/Rate.scss"
+import "../Styles/App.scss"
 
 const QUERY = gql`
   {
@@ -18,6 +19,10 @@ const QUERY = gql`
 `;
 
 export default () => {
+
+
+
+
   const {
     data: { isLoggedIn }
   } = useQuery(QUERY);
@@ -70,8 +75,6 @@ export default () => {
               `.trim();
             }
         })
-
-
       }
     }
   }
@@ -79,11 +82,14 @@ export default () => {
   
   return (
     <ThemeProvider theme={Theme}>
+      
       <>
+      
         <GlobalStyles />
-        <App params={ f7Params }>
-          <Layout isLoggedIn={ isLoggedIn } />
-        </App>
+          <App params={ f7Params }>
+            
+            <Layout isLoggedIn={ isLoggedIn } />
+          </App>
       </>
     </ThemeProvider>
   )

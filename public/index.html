@@ -16,6 +16,66 @@
   </head>
   <body>
     <div id="app"></div>
-
   </body>
+  <script>
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    console.log(width)
+    if(width > 500){
+
+      var noti = document.createElement("div")
+      noti.className = "noti-content"
+      noti.innerHTML = `   
+        안녕하세요 아차 싶더라고 팀(? 팀 이름이 기억 안납니다 ..)입니다.<br/>
+        제대로된 뷰를 보기 위해서는 모바일 환경으로 접속 <br>
+        혹은 개발자 도구로 모바일 뷰로 보기 후에 새로고침을 해주세요
+        `
+
+
+      var iphoneTop = document.createElement("div")
+      iphoneTop.className = "iphone-top"
+      iphoneTop.innerHTML= `
+        <span class="camera"></span>
+          <span class="sensor"></span>
+          <span class="speaker"></span>
+        `
+      var topBar = document.createElement("div")
+      topBar.className="top-bar"
+
+
+      var buttons = document.createElement("div")
+      buttons.className = "buttons"
+      buttons.innerHTML = `
+        <span class="on-off"></span>
+        <span class="sleep"></span>
+        <span class="up"></span>
+        <span class="down"></span>
+      `
+      var bottomBar = document.createElement("div")
+      bottomBar.className = "bottom-bar"
+      var iphoneBottom = document.createElement("div")
+      iphoneBottom.className = "iphone-bottom"
+      iphoneBottom.innerHTML = `
+        <span></span>
+      `
+
+      var element = document.getElementById("app");
+      var parent = element.parentNode;
+      var iphoneScreen = document.createElement('div');
+      iphoneScreen.className = "iphone-screen";
+      parent.replaceChild(iphoneScreen, element);
+      
+      iphoneScreen.appendChild(element);
+      var iphone = document.createElement("div");
+      iphone.className = "iphone"
+      parent.replaceChild(iphone, iphoneScreen);
+      iphone.appendChild(iphoneScreen);
+      iphone.prepend(topBar)
+      iphone.prepend(iphoneTop)
+      iphone.append(buttons)
+      iphone.append(bottomBar)
+      iphone.append(iphoneBottom)
+      parent.prepend(noti)
+    }
+  </script>
 </html>
+
