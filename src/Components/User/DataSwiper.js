@@ -6,7 +6,6 @@ import { BlockTitle, Card, CardFooter, CardContent } from "framework7-react"
 export default (
   {data}
 ) => {
-  console.log(data)
   
   return (
     <>

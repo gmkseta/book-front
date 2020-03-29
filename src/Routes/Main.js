@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery, useMutation } from "@apollo/react-hooks"
 import { RECOMMEND_BOOKS } from "../Components/Book/BookQueries"
 import { Link, withRouter } from "react-router-dom";
@@ -11,13 +11,12 @@ import { Page, List, ListInput, BlockTitle, Swiper, SwiperSlide } from 'framewor
 export default () => {
   const {loading, error, data} = useQuery(RECOMMEND_BOOKS);
   const search = useInput("");
+
   const onSearch = e => {
     e.preventDefault();
   };
 
-  useEffect(()=>{
-    console.log(data)
-  }, [loading])
+
 
   return(
     <Page className="page-home">
@@ -34,7 +33,6 @@ export default () => {
           {!loading &&
             data &&
             data.recommendBooks &&
-            
             data.recommendBooks.map((book, index) => (
               <SwiperSlide key={index} className="book-swiper-slide">
                 <BookFeed book={book}/>

@@ -4,8 +4,7 @@ import UserPresenter from "./UserPresenter";
 import UserReview from "./UserReview";
 
 import Loader from "../Loader";
-import Button from "../../Components/Button"
-import { Page, List, Block, BlockTitle } from 'framework7-react';
+import { Page, List, Block, BlockTitle, Button, Row, Col } from 'framework7-react';
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
 import { LOG_OUT } from "../../Components/Auth/AuthQueries"
@@ -30,7 +29,6 @@ export default ({userId}) => {
   
   const [logUserOut]= useMutation(LOG_OUT, {
     onCompleted: () => { 
-      console.log("log_out")
       window.location.href = "/" ;
     }
   });
@@ -47,8 +45,13 @@ export default ({userId}) => {
       </Block>
       <BlockTitle medium className="user-review">최고의 도서</BlockTitle>
       {/* <UserReview userReview={userReview} /> */}
-
-      <Button onClick={logUserOut} text="로그아웃" />
+      <Row>
+        <Col/>
+        <Col>
+          <Button fill onClick={logUserOut} text="로그아웃" />
+        </Col>
+        <Col/>
+      </Row>
     </Page>
   )
 

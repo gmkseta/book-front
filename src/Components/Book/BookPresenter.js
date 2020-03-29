@@ -30,12 +30,8 @@ export default(
                   book.pub_date
                 }
               </div>
-
             </Col>
-
           </Row>
-          
-
           <div className="book-info">
             {book &&
               book.keywords &&
@@ -47,9 +43,7 @@ export default(
                   ))
                 }
               </Block>
-
             }
-
 
             <Block className="wrap-title">
               내용

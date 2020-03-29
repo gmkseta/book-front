@@ -7,7 +7,6 @@ import Star from "../Rate/Star";
 export default (
   {addReview}
 ) => {
-  console.log(addReview)
   return (
     <ListItem>
       <div className="item-title">

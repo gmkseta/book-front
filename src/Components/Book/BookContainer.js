@@ -22,16 +22,14 @@ export default ({id}) => {
 
   return (
     <Page className="page-book">
-      <div className="navbars">
-        <div className="navbar navbar-current navbar-transparent">
-          <div className="navbar-inner sliding">
-            <div className="left">
-              <a className="link back">
-                <i className="icon icon-back"></i>
-                <span className="">
-                </span>
-              </a>
-            </div>
+      <div className="navbar navbar-transparent">
+        <div className="navbar-inner">
+          <div className="left">
+            <a className="link back" href="#">
+              <i className="icon icon-back"></i>
+              <span className="">
+              </span>
+            </a>
           </div>
         </div>
       </div>
@@ -39,7 +37,6 @@ export default ({id}) => {
         data &&
         <BookPresenter book={data.seeFullBook}/>
       }
-
       <AddReview addReview={addReview} />
     </Page>
   )

@@ -25,7 +25,8 @@ export default ({loginClose}) => {
   const [ requestSecretMutation ] = useMutation(LOGIN, {
     onError: (err)=>{
       if(err.graphQLErrors.length){
-        notiToast({text: err.graphQLErrors[0].message, icon: renderToString(<FontAwesomeIcon icon={faExclamationTriangle}/>)});
+        //err.graphQLErrors[0].message, icon: renderToString(<FontAwesomeIcon icon={faExclamationTriangle}/>)
+        notiToast({text: "에러가 발생했습니다"});
       }else{
         notiToast({text: err.message});
       }
@@ -40,7 +41,7 @@ export default ({loginClose}) => {
   const [ createAccountMutation ] = useMutation(CREATE_USER, {
     onError: (err)=>{
       if(err.graphQLErrors.length){
-        notiToast({text: err.graphQLErrors[0].message });
+        notiToast({text: "에러가 발생했습니다" });
       }else{
         notiToast({text: err.message});
       }

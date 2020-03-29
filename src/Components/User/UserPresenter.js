@@ -8,7 +8,6 @@ export default (
   const loading = seeProfile.seeProfile.loading;
   const data = seeProfile.seeProfile.data;
   const error = seeProfile.seeProfile.error;
-  console.log(seeProfile)
   if (loading){
     return (
       <div></div>

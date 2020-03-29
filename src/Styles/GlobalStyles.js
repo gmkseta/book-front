@@ -10,7 +10,7 @@ export default createGlobalStyle`
         --f7-navbar-bg-color: #ffffff;
         --f7-navbar-bg-image: var(--f7-bars-bg-image);
         --f7-navbar-border-color: var(--f7-bars-border-color);
-        --f7-navbar-link-color: #fff;
+        --f7-navbar-link-color: #000;
         --f7-navbar-text-color: var(--f7-bars-text-color);
         --f7-navbar-hide-show-transition-duration: 400ms;
         --f7-navbar-title-line-height: 1.2;

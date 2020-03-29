@@ -25,7 +25,6 @@ export default ({id, rate}) => {
   const [newRate, setNewRate] = useState(rate);
   const [ addReviewMutation ]= useMutation(ADD_REVIEW, {
     onError: (err)=>{
-      console.log(err)
     }
   });
 
@@ -40,8 +39,6 @@ export default ({id, rate}) => {
   }
 
   const endDragAddReview = () => {
-    console.log(newRate)
-    console.log(id)
     addReviewMutation({variables: { bookId: id, rate: newRate }}) 
   }
   

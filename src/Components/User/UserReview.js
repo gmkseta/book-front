@@ -9,7 +9,6 @@ export default (
   const loading = userReview.userReview.loading;
   const data = userReview.userReview.data;
   const error = userReview.userReview.error;
-  console.log(userReview)
   if (loading === true){
     return (
       <div></div>

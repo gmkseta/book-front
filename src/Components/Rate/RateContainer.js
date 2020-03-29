@@ -31,7 +31,7 @@ export default ( { categoryId }) => {
   };
   
   useEffect(()=>{
-    if(loading===false&&called===true&&infiState===false){
+    if(loading===false&&called===true&&infiState===false&&data){
       setItems([...items, ...data.randomBooks])
       setInfiState(true);
       if(data.randomBooks.length === 0){

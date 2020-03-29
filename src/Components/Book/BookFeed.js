@@ -17,7 +17,7 @@ const BookFeed = ({book}) => {
     {
      "data": {
       "rate": book.review_average/10,
-      "reviews_count": book.reviews_count/40 ,
+      "reviews_count": book.reviews_count/30 ,
       "price": (1-book.price/30000) < 0 ? 0 : (1-book.price/30000),
       "pubDate": (new Date(book.pub_date)*1 || (new Date()*1)/2)/(new Date()*1),
       "weight": 0.7
