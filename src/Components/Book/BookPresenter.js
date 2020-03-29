@@ -19,7 +19,6 @@ export default(
           <Row className="book-main">
             <Col className="book-img" width="20">
               <ThumbImage id={data.seeFullBook.id} image={data.seeFullBook.image} />
-              
             </Col>
             <Col width="80">
               <h2 className="book-title">
@@ -33,6 +32,11 @@ export default(
               <div className="book-info">
                 {
                   data.seeFullBook.author
+                }
+              </div>
+              <div className="book-subinfo">
+                {
+                  data.seeFullBook.pub_date
                 }
               </div>
 
