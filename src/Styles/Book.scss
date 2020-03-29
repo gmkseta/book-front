@@ -1,7 +1,7 @@
 .book-card{
   border-radius: 1em;
   .book-container{
-    background-color: rgba(249,102,93, 0.3);
+    background-color: rgba(224, 198, 197, 0.3);
     .card-header::after{
       content: none;
     }
@@ -139,3 +139,45 @@
     }
   }
 }
+
+.book-show {
+  .book-main {
+    padding-top: calc(var(--f7-navbar-height) + 50px);
+    margin-top: calc(-1 * var(--f7-navbar-height));
+    background-color: #F9665E;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 30px;
+    position: relative;
+    color: white;
+    .col-80 {
+      bottom: 30px;
+      position: absolute;
+      left: 25%;
+      .book-title{
+        font-size: 20px;
+        font-weight: 900;
+        padding-bottom: 5px;
+        
+      }
+      .book-info {
+        padding-bottom: 3px;
+
+      }
+    }
+  }
+  
+}
+.book-show .book-img{
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  align-items: center;
+  box-sizing: border-box;
+  width: 20%;
+  img{
+    width: 100%;
+    height: auto;
+  }
+}
+

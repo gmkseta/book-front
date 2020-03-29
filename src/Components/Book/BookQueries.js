@@ -19,6 +19,12 @@ export const SEE_FULL_BOOK = gql `
   query seeFullBook($id: String!){
     seeFullBook(id: $id){
       id
+      title
+      image
+      author
+      barcode
+      price
+      content
 
       category {
         id
@@ -28,10 +34,6 @@ export const SEE_FULL_BOOK = gql `
         id
         name
       }
-      title
-      author
-      barcode
-      price
       
       reviews {
         id
@@ -47,7 +49,7 @@ export const RECOMMEND_BOOKS = gql`
     recommendBooks {
       id
       title
-      reviewsCount
+      reviews_count
       image
     }
   }

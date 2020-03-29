@@ -29,10 +29,12 @@ export default () => {
       </List>
       <BlockTitle>북챠 추천 책</BlockTitle>
         {loading && <Loader />}
+        
         <Swiper params={{speed:500, slidesPerView: 1.3, spaceBetween: 10, centeredSlides: true}}>
           {!loading &&
             data &&
             data.recommendBooks &&
+            
             data.recommendBooks.map((book, index) => (
               <SwiperSlide key={index} className="book-swiper-slide">
                 <BookFeed book={book}/>

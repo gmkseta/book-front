@@ -63,8 +63,8 @@ const BookFeed = ({book}) => {
             
             </div>
             <CardFooter>
-              <span>뭐시기~</span>
-              <span>5 comments</span>
+              <span></span>
+              <span>{book.reviews_count} reviews</span>
             </CardFooter>
           </a>
         </CardContent>

@@ -1,6 +1,6 @@
 import React from "react";
-import { ListItem, Block } from 'framework7-react';
-
+import { ListItem, Block, Row, Col, Chip } from 'framework7-react';
+import { ThumbImage } from "./BookImage";
 export default(
   seeFullBook
 ) => {
@@ -15,48 +15,60 @@ export default(
   } else if (!loading && data){
     return (
         <>
-        <h2>
-          {data.seeFullBook.title}
-        </h2>
-        <Block>
-          키워드
-        </Block>
-        <div>
-          {
-            data.seeFullBook.keywords.map((kw, index) => (
-              <ListItem key={index}>
-                {kw.name}
-              </ListItem>
-            ))
-          }
-        </div>
-        <Block>
-          내용
-        </Block>
-        <div>
-          {
-            data.seeFullBook.content
-          }
-        </div>
-        <Block>
-          가격
-        </Block>
-        <div>
-          {
-            data.seeFullBook.price
-          }원
-        </div>
+        <div className="book-show">
+          <Row className="book-main">
+            <Col className="book-img" width="20">
+              <ThumbImage id={data.seeFullBook.id} image={data.seeFullBook.image} />
+              
+            </Col>
+            <Col width="80">
+              <h2 className="book-title">
+                {data.seeFullBook.title}
+              </h2>
+              <div className="book-info">
+                {
+                  data.seeFullBook.price
+                }원
+              </div>
+              <div className="book-info">
+                {
+                  data.seeFullBook.author
+                }
+              </div>
 
-        <Block>
-          출판일
-        </Block>
-        <div>
-          {
-            data.seeFullBook.pub_date
-          }
+            </Col>
+
+          </Row>
+          
+
+          <div className="book-info">
+            {data.seeFullBook &&
+              data.seeFullBook.keywords &&
+              data.seeFullBook.keywords[0] &&
+              <Block strong>
+                {
+                  data.seeFullBook.keywords.map((kw, index) => (
+                    <Chip outline text={kw.name} key={index} />
+                  ))
+                }
+              </Block>
+
+            }
+
+
+            <Block className="wrap-title">
+              내용
+          </Block>
+            <div>
+              {
+                data.seeFullBook.content
+              }
+            </div>
+
+
+          </div>
+
         </div>
-
-
       </>
       
     )
