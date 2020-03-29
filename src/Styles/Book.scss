@@ -1,7 +1,7 @@
 .book-card{
   border-radius: 1em;
   .book-container{
-    background-color: rgba(249,102,93, 0.3);
+    background-color: rgba(255,255,255, 0.3);
     .card-header::after{
       content: none;
     }
@@ -11,7 +11,7 @@
       box-sizing: border-box;
       align-items: center;
       min-height: var(--f7-list-item-min-height);
-      padding: 10px;
+      padding: 0 10px;
       .book-img{
         display: flex;
         flex-shrink: 0;
@@ -59,6 +59,10 @@
           color: #483030;
         }
       }
+    }
+    .card-footer{
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 }

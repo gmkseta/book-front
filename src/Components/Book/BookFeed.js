@@ -1,35 +1,43 @@
 import React from "react";
-import { BlockTitle ,Card, CardFooter, CardContent} from "framework7-react"
+import { BlockTitle ,Card, CardFooter, CardContent, Chip } from "framework7-react"
 import RadarChart from 'react-svg-radar-chart';
 import PropTypes from "prop-types";
 import { ThumbImage } from "./BookImage";
+import styled from "styled-components";
+
 
 const BookFeed = ({book}) => {
+  const ColorCardContent = styled(CardContent)`
+    background-color: ${book.color}BF !important;
+  `
+  const ColorChip =  styled(Chip)`
+    background-color: ${book.color}BF !important;
+  `
   const data = [
     {
      "data": {
-      "battery": 0.4,
-      "design": 0.1,
-      "useful": 0.7,
-      "speed": 0.6,
+      "rate": book.review_average/10,
+      "reviews_count": book.reviews_count/40 ,
+      "price": (1-book.price/30000) < 0 ? 0 : (1-book.price/30000),
+      "pubDate": (new Date(book.pub_date)*1 || (new Date()*1)/2)/(new Date()*1),
       "weight": 0.7
      },
      "meta": {
-      "color": "rgba(255,0,0,0.7)"
+        "color": `#F9665E`
      }
     }
    ]
   const captions = {
     // columns
-    battery: '평점',
-    design: '댓글 수',
-    useful: '판매량',
-    speed: '작가평',
+    rate: '평점',
+    reviews_count: '리뷰 수',
+    price: '가성비',
+    pubDate: '트랜디',
     weight: 'Weight'
   };
   const options = {
     scaleProps: () => ({
-      fill: 'rgba(123,0,0,0.2)',
+      fill: `${book.color}59`,
       stroke: '#000',
       strokeWidth: '.2'
       }),
@@ -46,7 +54,7 @@ const BookFeed = ({book}) => {
     <> 
     <BlockTitle>{book.title}</BlockTitle>
       <Card className="book-card">
-        <CardContent padding={false} className="book-container">
+        <ColorCardContent padding={false} className="book-container">
           <a href={"/books/"+book.id}>
             <div className="book-content">
               <div className="book-img">
@@ -62,12 +70,14 @@ const BookFeed = ({book}) => {
               </div>
             
             </div>
-            <CardFooter>
-              <span>뭐시기~</span>
-              <span>5 comments</span>
+            <CardFooter className="no-hairline">
+              <ColorChip text={"#"+book.category.name} />
+              {book.keywords.slice(-1).map((keyword, i)=>(
+                <ColorChip text={"#"+keyword.name} key={i} />
+              ))}
             </CardFooter>
           </a>
-        </CardContent>
+        </ColorCardContent>
       </Card>
     </>
   );

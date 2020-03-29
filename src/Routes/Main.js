@@ -6,7 +6,7 @@ import useInput from "../Hooks/useInput";
 import { f7 } from 'framework7-react';
 import Loader from "../Components/Loader";
 import BookFeed from '../Components/Book/BookFeed';
-import { Page, ListItem, List, ListInput, BlockTitle, Swiper, SwiperSlide } from 'framework7-react';
+import { Page, List, ListInput, BlockTitle, Swiper, SwiperSlide } from 'framework7-react';
 
 export default () => {
   const {loading, error, data} = useQuery(RECOMMEND_BOOKS);
