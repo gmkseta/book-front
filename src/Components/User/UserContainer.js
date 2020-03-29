@@ -33,7 +33,6 @@ export default ({userId}) => {
       <Block>
         <List medial-list className="my-page">
           <UserPresenter seeProfile={seeProfile} />
-          
         </List>
       </Block>
       <BlockTitle medium className="user-review">최고의 도서</BlockTitle>
