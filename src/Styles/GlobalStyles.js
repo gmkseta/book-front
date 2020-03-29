@@ -10,7 +10,7 @@ export default createGlobalStyle`
         --f7-navbar-bg-color: #ffffff;
         --f7-navbar-bg-image: var(--f7-bars-bg-image);
         --f7-navbar-border-color: var(--f7-bars-border-color);
-        --f7-navbar-link-color: var(--f7-bars-link-color);
+        --f7-navbar-link-color: #fff;
         --f7-navbar-text-color: var(--f7-bars-text-color);
         --f7-navbar-hide-show-transition-duration: 400ms;
         --f7-navbar-title-line-height: 1.2;
@@ -34,6 +34,10 @@ export default createGlobalStyle`
         --f7-vine-attendance-color: #F9665E;
         --f7-vine-absent-color: #4F3C9E;
         --f7-fab-button-size: 60px;
+        --f7-button-fill-pressed-bg-color: #ff6d66;
+        --f7-theme-color-tint: #ff6d66;
+        --f7-bars-translucent-opacity: 0.5;
+        
       }
 
       

@@ -15,7 +15,7 @@ export default (
         <div className="item-header item-author"></div>
         {/* <Star rate={rate} id={id} /> */}
       </div>
-      <img alt="" slot="media" src="https://cdn.framework7.io/placeholder/fashion-88x88-4.jpg" width="60" height="80" />
+      
     </ListItem>
   )
 }

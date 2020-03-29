@@ -5,6 +5,7 @@ import { Page, Navbar } from 'framework7-react';
 import BookPresenter from "./BookPresenter";
 import AddReview from "./AddReview";
 import Rating from "../../Components/Rate";
+
 export default ({id}) => {
   const seeFullBook = useQuery(SEE_FULL_BOOK, {
     variables: {
@@ -21,7 +22,19 @@ export default ({id}) => {
 
   return (
     <Page className="page-book">
-      <Navbar title="도서" backLink=" "></Navbar>
+      <div className="navbars">
+        <div className="navbar navbar-current navbar-transparent">
+          <div className="navbar-inner sliding">
+            <div className="left">
+              <a className="link back">
+                <i className="icon icon-back"></i>
+                <span className="">
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
       <BookPresenter seeFullBook={seeFullBook}/>
       <AddReview addReview={addReview} />
     </Page>
