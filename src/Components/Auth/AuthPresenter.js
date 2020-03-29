@@ -21,7 +21,7 @@ export default ({
           <Row>
             <Col/>
             <Col>
-              <Button raised fill type='submit'>Log in</Button>
+              <Button raised fill type='submit' className="sign-button">Log in</Button>
             </Col>
             <Col/>
           </Row>
@@ -41,7 +41,7 @@ export default ({
             <Row>
               <Col/>
               <Col>
-                <Button raised fill type='submit'>Sign Up</Button>
+                <Button raised fill type='submit' className="sign-button">Sign Up</Button>
               </Col>
               <Col/>
             </Row>

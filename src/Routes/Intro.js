@@ -30,16 +30,18 @@ export default ()=> {
 
   return(
     <IntroPage className="page-intro" onPageAfterIn={swiperInitial}>
-      <Row>
-        <Col/>
-        <Col>
-          <Button raised large fill onClick={() => {setLoginScreenOpened(true)}}>시작하기</Button>
-        </Col>
-        <Col/>
-      </Row>
-      <LoginScreen opened={loginScreenOpened} onLoginScreenClosed={() => {setLoginScreenOpened(false)}}>
-        <LoginPage loginClose={closeHandler}/>
-      </LoginScreen> 
+        <div className="intro-container">
+        <div className="title">BookCha</div>
+        <div className="sub_title">당신의 모든 책</div>
+        <Row>
+          <Col>
+            <Button large fill onClick={() => {setLoginScreenOpened(true)}}>시작하기</Button>
+          </Col>
+        </Row>
+        <LoginScreen opened={loginScreenOpened} onLoginScreenClosed={() => {setLoginScreenOpened(false)}}>
+          <LoginPage loginClose={closeHandler}/>
+        </LoginScreen> 
+        </div>
     </IntroPage>
   )
 }

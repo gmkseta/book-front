@@ -61,8 +61,73 @@
       }
     }
   }
-
-
-
 }
 
+.login-title{
+  font-family: sans-serif;
+}
+
+.sign-button{
+  margin-top: 20px;
+}
+
+.intro-container{
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/intro.jpg");
+  background-size: cover;
+  background-position: center;
+    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 3s; /* Firefox < 16 */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera < 12.1 */
+            animation: fadein 3s;
+
+  @keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  /* Firefox < 16 */
+  @-moz-keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  /* Safari, Chrome and Opera > 12.1 */
+  @-webkit-keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  .title{
+    color: white;
+    font-size: 80px;
+    font-family: cursive;
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+  }
+  .sub_title {
+    color: white;
+    font-size: 40px;
+    font-family: sans-serif;
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+  }
+  .row{
+    position: absolute;
+    bottom: 5%;
+    width: 80%;
+    margin-left: 10%;
+    .button{
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: larger;
+      color: white; 
+    }
+  }
+}
