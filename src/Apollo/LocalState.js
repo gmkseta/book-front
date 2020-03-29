@@ -13,9 +13,9 @@ export const resolvers = {
       });
       return token;
     },
+    
     logUserOut: (_, __, { cache }) => {
       localStorage.removeItem("token");
-      window.location = "/";
       return null;
     }
   }

@@ -24,6 +24,7 @@ export const SEE_FULL_BOOK = gql `
       barcode
       price
       content
+      pub_date
 
       category {
         id
