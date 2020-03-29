@@ -50,13 +50,13 @@ export default ({
       
       {action === "logIn" ? (
         <List>
-          <ListButton onClick={() => setAction("signUp")}>Sign In</ListButton>
+          <ListButton onClick={() => setAction("signUp")}>Sign Up</ListButton>
           <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
         </List>
 
       ) : (
         <List>
-          <ListButton onClick={() => setAction("logIn")}>Sign In</ListButton>
+          <ListButton onClick={() => setAction("logIn")}>Login</ListButton>
           <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
         </List>
       )}    
