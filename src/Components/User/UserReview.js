@@ -16,8 +16,6 @@ export default (
     );
     
   } else if (!loading && data && data.userReview) {
-    console.log(data.userReview)
-    console.log("==========")
 
     return (
       <Swiper params={{ speed: 500, slidesPerView: 1.3, spaceBetween: 10, centeredSlides: true }}>

@@ -1,11 +1,10 @@
 import React from 'react';
+import { Button } from "framework7-react"
 import UserContainer from '../../Components/User/UserContainer';
-
-
 
 export default ({userId}) => {
 
-  console.log(userId)
-  
-  return(<UserContainer userId={userId}/>);
+  return(
+      <UserContainer userId={userId}/>
+    )
 }
