@@ -2,41 +2,32 @@ import React from "react";
 import { ListItem, Block, Row, Col, Chip } from 'framework7-react';
 import { ThumbImage } from "./BookImage";
 export default(
-  seeFullBook
+  { book }
 ) => {
-  const loading = seeFullBook.seeFullBook.loading;
-  const data = seeFullBook.seeFullBook.data;
-  const error = seeFullBook.seeFullBook.error;
-  
-  if (loading) {
-    return (
-      <div></div>
-    )
-  } else if (!loading && data){
-    return (
-        <>
+  return (
+      <>
         <div className="book-show">
           <Row className="book-main">
             <Col className="book-img" width="20">
-              <ThumbImage id={data.seeFullBook.id} image={data.seeFullBook.image} />
+              <ThumbImage id={book.id} image={book.image} />
             </Col>
             <Col width="80">
               <h2 className="book-title">
-                {data.seeFullBook.title}
+                {book.title}
               </h2>
               <div className="book-info">
                 {
-                  data.seeFullBook.price
+                  book.price
                 }원
               </div>
               <div className="book-info">
                 {
-                  data.seeFullBook.author
+                  book.author
                 }
               </div>
               <div className="book-subinfo">
                 {
-                  data.seeFullBook.pub_date
+                  book.pub_date
                 }
               </div>
 
@@ -46,12 +37,12 @@ export default(
           
 
           <div className="book-info">
-            {data.seeFullBook &&
-              data.seeFullBook.keywords &&
-              data.seeFullBook.keywords[0] &&
+            {book &&
+              book.keywords &&
+              book.keywords[0] &&
               <Block strong>
                 {
-                  data.seeFullBook.keywords.map((kw, index) => (
+                  book.keywords.map((kw, index) => (
                     <Chip outline text={kw.name} key={index} />
                   ))
                 }
@@ -65,7 +56,7 @@ export default(
           </Block>
             <div>
               {
-                data.seeFullBook.content
+                book.content
               }
             </div>
 
@@ -76,12 +67,5 @@ export default(
       </>
       
     )
-  } else {
-    return (
-      <div>
-        {error}
-      </div>
-    )
-  }
-  
 }
+  

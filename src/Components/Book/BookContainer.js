@@ -7,7 +7,7 @@ import AddReview from "./AddReview";
 import Rating from "../../Components/Rate";
 
 export default ({id}) => {
-  const seeFullBook = useQuery(SEE_FULL_BOOK, {
+  const { loading, error, data }= useQuery(SEE_FULL_BOOK, {
     variables: {
       id: id
     }
@@ -35,7 +35,11 @@ export default ({id}) => {
           </div>
         </div>
       </div>
-      <BookPresenter seeFullBook={seeFullBook}/>
+      {!loading &&
+        data &&
+        <BookPresenter book={data.seeFullBook}/>
+      }
+
       <AddReview addReview={addReview} />
     </Page>
   )
