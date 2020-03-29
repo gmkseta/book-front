@@ -21,13 +21,15 @@
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     console.log(width)
     if(width > 500){
-
+      var title = document.createElement("div")
+      title.className = "title-content"
+      title.innerHTML = `BookCha`
       var noti = document.createElement("div")
       noti.className = "noti-content"
       noti.innerHTML = `   
         안녕하세요 아차 싶더라고 팀(? 팀 이름이 기억 안납니다 ..)입니다.<br/>
         제대로된 뷰를 보기 위해서는 모바일 환경으로 접속 <br>
-        혹은 개발자 도구로 모바일 뷰로 보기 후에 새로고침을 해주세요
+        혹은 개발자 도구로 모바일 뷰로 보기 후에 <b class='please'>새로고침 꼭</b> 해주세요
         `
 
 
@@ -75,6 +77,8 @@
       iphone.append(bottomBar)
       iphone.append(iphoneBottom)
       parent.prepend(noti)
+      parent.prepend(title)
+      parent.style = "overflow-y: auto;"
     }
   </script>
 </html>

@@ -6,7 +6,7 @@ import UserReview from "./UserReview";
 import Loader from "../Loader";
 
 import { Page, List, Block, BlockTitle } from 'framework7-react';
-import { useQuery } from "react-apollo-hooks";
+import { useQuery } from "@apollo/react-hooks";
 import {
   SEE_PROFILE,
   USER_REVIEW

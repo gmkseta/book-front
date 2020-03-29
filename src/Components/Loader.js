@@ -1,5 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBookOpen  } from '@fortawesome/free-solid-svg-icons'
+
 import { Logo } from "./Icons";
 
 const Animation = keyframes`
@@ -22,6 +25,6 @@ const Loader = styled.div`
 
 export default () => (
   <Loader>
-    <Logo size={36} />
+    <FontAwesomeIcon icon={faBookOpen} size={'5x'}/>
   </Loader>
 );

@@ -51,13 +51,13 @@ export default ({
       {action === "logIn" ? (
         <List>
           <ListButton onClick={() => setAction("signUp")}>Sign Up</ListButton>
-          <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
+          <BlockFooter>로그인을 해서 다양한 책들을 만나보세요<br /> 수많은 책들이 당신의 리뷰를 기다리고있습니다.</BlockFooter>
         </List>
 
       ) : (
         <List>
           <ListButton onClick={() => setAction("logIn")}>Login</ListButton>
-          <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
+          <BlockFooter>회원가입을 해서 다양한 책들을 만나보세요<br /> 수많은 책들이 당신의 리뷰를 기다리고있습니다.</BlockFooter>
         </List>
       )}    
   </div>

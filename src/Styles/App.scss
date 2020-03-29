@@ -3,14 +3,18 @@
   width: 100%;
   height: 100%;
 }
-body{
-  background: url("./web_layout.jpg");
+@media all and (min-width:500px) {
+  body{
+    background: url("./web_layout.jpg");
+  }
 }
+
+
 
 .noti-content{
   background-color: rgba(255,255,255, 0.8);
   width: 50%;
-  margin: 30px auto;
+  margin: 30px auto 0 auto;
   padding: 20px;
   font-size: 1em;
   font-weight: 700;
@@ -19,7 +23,13 @@ body{
   box-shadow:  5px 5px 10px rgba(179,179,179, 0.5), 
               -5px -5px 10px rgba(243,243,243, 0.5);
 }
-
+.title-content {
+  color: white;
+  font-size: 80px;
+  font-family: cursive;
+  text-align: center;
+  margin-top: 30px;
+}
 .iphone {
   box-shadow: inset 0 0 3px 0 rgba(0,0,0,0.2), 0 0 0 1px #999, 0 0 30px 0px rgba(0,0,0,0.7);
   border: 5px solid #d9dbdc;
@@ -29,7 +39,7 @@ body{
   height: 877px;
   width: 423px;
   position: relative;
-  margin: 30px auto;  
+  margin: auto;  
   // Scale so that the iPhone fits in view
   transform: scale(.8);
 }
@@ -162,4 +172,7 @@ body{
       top: 4px;
     }
   }
+}
+.please{
+  font-size: 2em;
 }

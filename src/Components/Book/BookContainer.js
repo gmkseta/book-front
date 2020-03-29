@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery, useMutation } from "react-apollo-hooks"
+import { useQuery, useMutation } from "@apollo/react-hooks"
 import { SEE_FULL_BOOK, ADD_REVIEW } from "./BookQueries"
 import { Page, Navbar } from 'framework7-react';
 import BookPresenter from "./BookPresenter";
@@ -19,19 +19,11 @@ export default ({id}) => {
     }
   })
 
-
-  
-  console.log(`seeFullBook=====`)
-  console.log(id);
-  console.log(seeFullBook)
   return (
     <Page className="page-book">
       <Navbar title="도서" backLink=" "></Navbar>
       <BookPresenter seeFullBook={seeFullBook}/>
       <AddReview addReview={addReview} />
-      
-      
-
     </Page>
   )
 }

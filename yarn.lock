@@ -4537,6 +4537,15 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
+framework7-react@^5.5.1:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/framework7-react/-/framework7-react-5.5.3.tgz#fc2d795e66d91154047d96f49f4f88e28ca43001"
+  integrity sha512-Gw/4w/XfLRJGCgc1p8RLxUv54KQvXmY26KIcJedcyDEXtJEwNyy6jaFomF2/EI3rctvM/AgAXc6LAXLw3FmAnw==
+
+framework7@^5.5.1:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/framework7/-/framework7-5.5.3.tgz#cfc7f9a99aaf2c0674b526b4393ee71606d61826"
+  integrity sha512-FtdLk0PJpOFfJdmHkK82Udbs+Bh47+yxyCh21JfcqMeH4qervmF/hPjD56DnmneVfnEm5xxQS+7FNfZV5mPr7Q==
   dependencies:
     dom7 "^2.1.3"
     path-to-regexp "^6.1.0"
@@ -8641,13 +8650,6 @@ raw-body@2.4.0:
     http-errors "1.7.2"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
-
-react-apollo-hooks@^0.4.3:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/react-apollo-hooks/-/react-apollo-hooks-0.4.5.tgz#7fe6a8ddfdc92df2da664d399ea77a0da4a10bad"
-  integrity sha512-fq04h88hg4ONtlzxYInmv7Okqqstzk3UCp55jHWOlIO2lFKoZPhQrtCz7A+TrcRu8GGwtG1SsioRKN8kIQaAOQ==
-  dependencies:
-    lodash "^4.17.11"
 
 react-app-polyfill@^0.2.2:
   version "0.2.2"
