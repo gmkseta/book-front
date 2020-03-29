@@ -7,9 +7,8 @@ export const ADD_REVIEW = gql`
         id
         rate
         content
-
       }
-      reviewCount
+      review_count
       
     }
   }

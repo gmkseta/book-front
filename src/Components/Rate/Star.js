@@ -38,6 +38,12 @@ export default ({id, rate}) => {
       rate < 10 ? rate : 10
     )
   }
+
+  const endDragAddReview = () => {
+    console.log(newRate)
+    console.log(id)
+    addReviewMutation({variables: { bookId: id, rate: newRate }}) 
+  }
   
   const getStarArr = ()=>{
     let result = [];
@@ -56,7 +62,7 @@ export default ({id, rate}) => {
   }
   
   return (
-  <StarContainer onTouchStart={onDrag} onTouchEnd={()=>{addReviewMutation({variables: { bookId: id, rate: newRate }})}} onTouchMove={onDrag} className="star-container">
+  <StarContainer onTouchStart={onDrag} onTouchEnd={endDragAddReview} onTouchMove={onDrag} className="star-container">
     {getStarArr().map((icon, index) => (
       <FontAwesomeIcon icon={icon} key={index} className={icon.className}/>
     ))}

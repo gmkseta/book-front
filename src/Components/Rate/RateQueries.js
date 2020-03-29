@@ -17,27 +17,31 @@ export const ALL_BOOKS = gql`
 `
 
 export const RANDOM_BOOKS = gql`
-    query randomBooks(
-      $categoryId: String, $afterId: String
+  query randomBooks(
+    $categoryId: String, $afterId: String
+    ){
+      randomBooks(
+        categoryId: $categoryId, afterId: $afterId
       ){
-        randomBooks(
-          categoryId: $categoryId, afterId: $afterId
-        ){
-            id
-            title
-            author
-        }
+          id
+          title
+          author
+          image
       }
+    }
 `
 
 export const ADD_REVIEW = gql`
-  mutation AddReview($bookId: String!, $rate: Int!){
+  mutation AddReview($bookId: String!, $content: String, $rate: Int!){
     addReview(
       bookId: $bookId
-      rate: $rate
+      rate: $rate,
+      content: $content
     ){
-      id
-      rate
+      review{
+        id
+      }
+      reviewCount
     }
   }
 `

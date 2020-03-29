@@ -12,7 +12,7 @@ export default ( { categoryId }) => {
   const [preloader, setPreloader] = useState(true);
   const [items, setItems] = useState([]);
   const [after, setAfter] = useState(null);
-  const [ loadBooks, { called, loading, data }] = useLazyQuery(ALL_BOOKS, {
+  const [ loadBooks, { called, loading, data }] = useLazyQuery(RANDOM_BOOKS, {
     variables: {
       categoryId: '',
       afterId: after
@@ -32,9 +32,9 @@ export default ( { categoryId }) => {
   
   useEffect(()=>{
     if(loading===false&&called===true&&infiState===false){
-      setItems([...items, ...data.allBooks])
+      setItems([...items, ...data.randomBooks])
       setInfiState(true);
-      if(data.allBooks.length === 0){
+      if(data.randomBooks.length === 0){
         setPreloader(false)
       }
     }
