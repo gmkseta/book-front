@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Page, Swiper, , Button, LoginScreen, Row, Col, f7 } from 'framework7-react';
+import { Page, Swiper, Button, LoginScreen, Row, Col, f7 } from 'framework7-react';
 import styled from "styled-components";
 import LoginPage from '../Components/Auth'
 
@@ -8,7 +8,7 @@ const IntroImage = styled.img`
 max-width:80%;max-height:80%;margin-top:30%;
 `
 
-IntroPage = styled(Page)`
+const IntroPage = styled(Page)`
 
 `
 
