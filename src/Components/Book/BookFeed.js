@@ -2,7 +2,8 @@ import React from "react";
 import { BlockTitle ,Card, CardFooter, CardContent} from "framework7-react"
 import RadarChart from 'react-svg-radar-chart';
 import PropTypes from "prop-types";
-import { thumbImage } from "./BookImage";
+import { ThumbImage } from "./BookImage";
+
 const BookFeed = ({book}) => {
   const data = [
     {
@@ -49,7 +50,7 @@ const BookFeed = ({book}) => {
           <a href={"/books/"+book.id}>
             <div className="book-content">
               <div className="book-img">
-                
+              <ThumbImage id={book.id} image={book.image}/>
               </div>
               <div className="book-inner">
                 <RadarChart
