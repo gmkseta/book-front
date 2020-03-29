@@ -1,7 +1,7 @@
 import {gql} from "apollo-boost";
 
 export const ADD_REVIEW = gql`
-  query addReview($bookId: String!, $content: String, $rate: Int){
+  mutation addReview($bookId: String!, $content: String, $rate: Int){
     addReview(bookId: $bookId, content: $content, rate: $rate){
       review {
         id

@@ -5,6 +5,7 @@ import { Page, Navbar } from 'framework7-react';
 import BookPresenter from "./BookPresenter";
 import AddReview from "./AddReview";
 import Rating from "../../Components/Rate";
+
 export default ({id}) => {
   const seeFullBook = useQuery(SEE_FULL_BOOK, {
     variables: {
