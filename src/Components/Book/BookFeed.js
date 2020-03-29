@@ -2,7 +2,8 @@ import React from "react";
 import { BlockTitle ,Card, CardFooter, CardContent} from "framework7-react"
 import RadarChart from 'react-svg-radar-chart';
 
-export default () => {
+export default ({book}) => {
+  console.log(book);
   const data = [
     {
      "data": {
@@ -18,7 +19,7 @@ export default () => {
     }
    ]
 
-const captions = {
+  const captions = {
     // columns
     battery: '평점',
     design: '댓글 수',
@@ -46,23 +47,29 @@ const captions = {
       <BlockTitle>공리주의</BlockTitle>
       <Card className="book-card">
         <CardContent padding={false} className="book-container">
-          <div className="book-content">
-            <div className="book-img">
-              <img alt="" slot="media" src="http://image.yes24.com/momo/TopCate1122/MidCate003/112127301.jpg"/>
+          <a href="/books/02cf9cc5e43096d86dab7e75">
+            <div className="book-content">
+
+            
+              <div className="book-img">
+                
+                <img alt="" slot="media" src="http://image.yes24.com/momo/TopCate1122/MidCate003/112127301.jpg"/>
+              </div>
+              <div className="book-inner">
+                <RadarChart
+                  captions={captions}
+                  data={data}
+                  size={getSize()}
+                  options={options}
+                />
+              </div>
+            
             </div>
-            <div className="book-inner">
-              <RadarChart
-                captions={captions}
-                data={data}
-                size={getSize()}
-                options={options}
-              />
-            </div>
-          </div>
-          <CardFooter>
-            <span>뭐시기~</span>
-            <span>5 comments</span>
-          </CardFooter>
+            <CardFooter>
+              <span>뭐시기~</span>
+              <span>5 comments</span>
+            </CardFooter>
+          </a>
         </CardContent>
       </Card>
     </>

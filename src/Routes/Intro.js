@@ -14,6 +14,7 @@ const IntroPage = styled(Page)`
 
 export default ()=> {
   const [ loginScreenOpened, setLoginScreenOpened ] = useState(false);
+  
   const closeHandler = (e) => {
     setLoginScreenOpened(false);
   }
