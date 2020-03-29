@@ -99,8 +99,8 @@ export default ({loginClose}) => {
           <Link onClick={loginClose}>Close</Link>
         </NavRight>
       </Navbar>
-      <LoginScreenTitle>
-        {action === "logIn" && ( '로그인 하셈여!' )}{action === "signUp" && ( '회원가입 하셈여!' )}
+      <LoginScreenTitle className="login-title">
+        {action === "logIn" && ( '로그인' )}{action === "signUp" && ( '회원가입' )}
       </LoginScreenTitle>
       <AuthPresenter
         setAction={setAction}
