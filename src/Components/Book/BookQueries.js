@@ -51,7 +51,17 @@ export const RECOMMEND_BOOKS = gql`
       id
       title
       reviews_count
+      review_average
+      price
+      pub_date
       image
+      color
+      category {
+        name
+      }
+      keywords {
+        name
+      }
     }
   }
 `
