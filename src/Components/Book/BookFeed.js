@@ -1,9 +1,8 @@
 import React from "react";
 import { BlockTitle ,Card, CardFooter, CardContent} from "framework7-react"
 import RadarChart from 'react-svg-radar-chart';
-
-export default ({book}) => {
-  console.log(book);
+import PropTypes from "prop-types";
+const BookFeed = ({book}) => {
   const data = [
     {
      "data": {
@@ -18,7 +17,6 @@ export default ({book}) => {
      }
     }
    ]
-
   const captions = {
     // columns
     battery: '평점',
@@ -43,17 +41,15 @@ export default ({book}) => {
     return (window.innerWidth-40-window.innerWidth*0.3)*0.65 ;
   }
   return (
-    <>
-      <BlockTitle>공리주의</BlockTitle>
+    <> 
+
+    <BlockTitle>{book.title}</BlockTitle>
       <Card className="book-card">
         <CardContent padding={false} className="book-container">
-          <a href="/books/02cf9cc5e43096d86dab7e75">
+          <a href={"/books/"+book.id}>
             <div className="book-content">
-
-            
               <div className="book-img">
-                
-                <img alt="" slot="media" src="http://image.yes24.com/momo/TopCate1122/MidCate003/112127301.jpg"/>
+                <img alt="" slot="media" src="{{book.image}}"/>
               </div>
               <div className="book-inner">
                 <RadarChart
@@ -75,3 +71,9 @@ export default ({book}) => {
     </>
   );
 }
+//
+BookFeed.propTypes = {
+  // title: PropTypes.string.isRequired,
+  book: PropTypes.object.isRequired
+};
+export default BookFeed;

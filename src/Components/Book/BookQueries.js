@@ -48,6 +48,7 @@ export const RECOMMEND_BOOKS = gql`
       id
       title
       reviewsCount
+      image
     }
   }
 `
