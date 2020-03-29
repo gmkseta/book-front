@@ -27,6 +27,7 @@ const BookFeed = ({book}) => {
      }
     }
    ]
+   
   const captions = {
     // columns
     rate: '평점',
