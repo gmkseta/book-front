@@ -3,7 +3,7 @@ import { FontAwesomeIcon as FontAwesomeIconO } from '@fortawesome/react-fontawes
 import { faStarHalfAlt, faStar } from '@fortawesome/free-solid-svg-icons'
 import { faStar as faStarO } from '@fortawesome/free-regular-svg-icons'
 import styled from 'styled-components';
-import { useMutation } from "react-apollo-hooks";
+import { useMutation } from "@apollo/react-hooks";
 import {
   ADD_REVIEW
 } from "./RateQueries";
@@ -23,8 +23,10 @@ faStarHalfAlt.className = "fill"
 export default ({id, rate}) => {
   const bookId = id;
   const [newRate, setNewRate] = useState(rate);
-  const addReviewMutation = useMutation(ADD_REVIEW, {
-    variables: { bookId: id, rate: newRate }
+  const [ addReviewMutation ]= useMutation(ADD_REVIEW, {
+    onError: (err)=>{
+      console.log(err)
+    }
   });
 
   const onDrag = (touch) => {
@@ -50,18 +52,11 @@ export default ({id, rate}) => {
     for(;i<=5;i++){
       result.push(faStarO)
     }
-      
     return result;
-  }
-
-  const createReview = async (e) => {
-    const {
-      data: { addReview }
-    } = await addReviewMutation();
   }
   
   return (
-  <StarContainer onTouchStart={onDrag} onTouchEnd={createReview} onTouchMove={onDrag} className="star-container">
+  <StarContainer onTouchStart={onDrag} onTouchEnd={()=>{addReviewMutation({variables: { bookId: id, rate: newRate }})}} onTouchMove={onDrag} className="star-container">
     {getStarArr().map((icon, index) => (
       <FontAwesomeIcon icon={icon} key={index} className={icon.className}/>
     ))}

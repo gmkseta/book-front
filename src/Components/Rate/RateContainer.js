@@ -1,74 +1,64 @@
-import React, { useState } from "react";
-import { Page, List, Block, BlockTitle, ListItem, f7 } from 'framework7-react';
+import React, { useState, useEffect, useCallBack } from "react";
+import { Page, List, Block, Navbar, NavTitle, NavTitleLarge } from 'framework7-react';
 import RatePresenter from "./RatePresenter";
 import Loader from "../Loader";
-import { useQuery } from "react-apollo-hooks";
+import { useLazyQuery } from "@apollo/react-hooks";
 import {
-  ALL_BOOKS
+  RANDOM_BOOKS
 } from "./RateQueries";
 
 export default ( { categoryId }) => {
-  const [items, setItems] = useState([1,2,3,4,5,6,7,8,9,19,11,12,13,14,15,16,17,18,19,20]);
   const [infiState, setInfiState] = useState(true);
   const [preloader, setPreloader] = useState(true);
-
-
-  const { loading, error, data } = useQuery(ALL_BOOKS, {
+  const [items, setItems] = useState([]);
+  const [after, setAfter] = useState(null);
+  const [ loadBooks, { called, loading, data }] = useLazyQuery(RANDOM_BOOKS, {
     variables: {
-      categoryId: categoryId,
-      afterId: null
+      categoryId: '',
+      afterId: after
     }
   })
-
-  const infiHandler = (e) => {
-    console.log(e)
-  }
   
-
-  const loadMore = () => {
-    if (!infiState) return;
-    
+  const loadMore = (e) => {
+    if (!infiState) return; 
     setInfiState(false);
-
-    setTimeout(() => {
-      if (items.length >= 200) {
-        setPreloader(false);
-        return;
-      }
-      const itemsLength = items.length;
-      let newItems = [];
-      for (let i = 1; i <= 20; i += 1) {
-        newItems.push(itemsLength+i)
-      }
-      setItems(items.push(newItems));
-      setInfiState(true);
-    }, 500)
+    setAfter((items[items.length-1]||{id: null}).id)
+    loadBooks()
+    if (items.length >= 200) {
+      setPreloader(false);
+      return;
+    }
   };
+  
+  useEffect(()=>{
+    if(loading===false&&called===true&&infiState===false){
+      setItems([...items, ...data.randomBooks])
+      setInfiState(true);
+      if(data.randomBooks.length === 0){
+        setPreloader(false)
+      }
+    }
+  }, [loading])
 
   return (
-      <Page className="page-rating" infinite onInfinite={loadMore} infiniteDistance={50} infinitePreloader={preloader} >
-          <BlockTitle medium className="searchbar-found">Components</BlockTitle>
+      <Page className="page-rating" onPageInit={loadMore} infinite onInfinite={loadMore} infiniteDistance={20} infinitePreloader={preloader} >
+        <Navbar large innerClass="no-hairline">
+          <NavTitleLarge>132</NavTitleLarge>
+          <div className="navbar-bg"></div>
+        </Navbar>
           <Block>
           <List medial-list className="rate-list">
-            {loading && <Loader/>}
-            {!loading &&
-              data &&
-              data.allBooks &&
-              data.allBooks.map(book => (
-                <RatePresenter author={book.author} title={book.title} id={book.id} key={book.id}/>
+            {
+              items &&
+              items.map((book, i) => (
+                <RatePresenter author={book.author} title={book.title} id={book.id} key={i}/>
               ))
             }
-            
           </List>
-          <List>
-          {items.map((item, index) => (
-            <ListItem title={`Item ${item}`} key={index}></ListItem>
-          ))}
-        </List>
-
         </Block>
       </Page>
     )
+
 };
     
 
