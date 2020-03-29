@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Page, Swiper, SwiperSlide, Button, LoginScreen, Row, Col } from 'framework7-react';
+import { Page, Swiper, , Button, LoginScreen, Row, Col, f7 } from 'framework7-react';
 import styled from "styled-components";
 import LoginPage from '../Components/Auth'
 
@@ -7,10 +7,9 @@ import LoginPage from '../Components/Auth'
 const IntroImage = styled.img`
 max-width:80%;max-height:80%;margin-top:30%;
 `
-const FullSwiper = styled(Swiper)`
-height:100%;
-background-color: white;
-text-align: center;
+
+IntroPage = styled(Page)`
+
 `
 
 export default ()=> {
@@ -19,26 +18,28 @@ export default ()=> {
     setLoginScreenOpened(false);
   }
 
+  const swiperInitial = ()=>{
+    
+      f7.swiper.create(".intro-swiper",{
+        autoplay: {
+          delay: 1000
+        }
+      })
+    
+  }
+
   return(
-    <Page className="page-intro">
-      <FullSwiper pagination>
-        <SwiperSlide><IntroImage src="images/books.jpg"/></SwiperSlide>
-        <SwiperSlide><IntroImage src="images/books.jpg"/></SwiperSlide>
-        <SwiperSlide>
-          <IntroImage src="images/books.jpg"/>
-          <br/>
-          <Row>
-            <Col/>
-            <Col>
-              <Button raised large fill onClick={() => {setLoginScreenOpened(true)}}>시작하기</Button>
-            </Col>
-            <Col/>
-          </Row>
-        </SwiperSlide>
-      </FullSwiper>
+    <IntroPage className="page-intro" onPageAfterIn={swiperInitial}>
+      <Row>
+        <Col/>
+        <Col>
+          <Button raised large fill onClick={() => {setLoginScreenOpened(true)}}>시작하기</Button>
+        </Col>
+        <Col/>
+      </Row>
       <LoginScreen opened={loginScreenOpened} onLoginScreenClosed={() => {setLoginScreenOpened(false)}}>
         <LoginPage loginClose={closeHandler}/>
       </LoginScreen> 
-    </Page>
+    </IntroPage>
   )
 }
