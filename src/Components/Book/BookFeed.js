@@ -46,8 +46,8 @@ const captions = {
       <BlockTitle>공리주의</BlockTitle>
       <Card className="book-card">
         <CardContent padding={false} className="book-container">
-          <div className="book-content">
-            <a href="/books/11bd7872ec1d00789ee2313d">
+          <a href="/books/02cf9cc5e43096d86dab7e75">
+            <div className="book-content">
 
             
               <div className="book-img">
@@ -62,12 +62,13 @@ const captions = {
                   options={options}
                 />
               </div>
-            </a>
-          </div>
-          <CardFooter>
-            <span>뭐시기~</span>
-            <span>5 comments</span>
-          </CardFooter>
+            
+            </div>
+            <CardFooter>
+              <span>뭐시기~</span>
+              <span>5 comments</span>
+            </CardFooter>
+          </a>
         </CardContent>
       </Card>
     </>

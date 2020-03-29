@@ -24,7 +24,7 @@ export default(
         <div>
           {
             data.seeFullBook.keywords.map((kw, index) => (
-              <ListItem>
+              <ListItem key={index}>
                 {kw.name}
               </ListItem>
             ))

@@ -1,4 +1,18 @@
 import {gql} from "apollo-boost";
+export const ADD_REVIEW = gql`
+  query addReview($bookId: String!, $content: String, $rate: Int){
+    addReview(bookId: $bookId, content: $content, rate: $rate){
+      review {
+        id
+        rate
+        content
+
+      }
+      reviewCount
+      
+    }
+  }
+`
 
 export const SEE_FULL_BOOK = gql `
   query seeFullBook($id: String!){
