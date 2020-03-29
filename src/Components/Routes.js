@@ -5,6 +5,7 @@ import Rating from '../Routes/Rating';
 import Notification from '../Routes/Notification';
 import UserShow from '../Routes/Users/Show';
 import BookShow from '../Routes/Books/Show';
+import BookSearch from '../Routes/Books/Search';
 import Intro from '../Routes/Intro'
 
 const LoggedInRoutes = () => (
@@ -28,6 +29,10 @@ const LoggedInRoutes = () => (
     {
       path: '/books/:id',
       component: BookShow,
+    },
+    {
+      path: '/books/search',
+      component: BookSearch,
     },
     {
       path: '(.*)',
